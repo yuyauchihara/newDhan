@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+
 
 public class Coin : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Coin : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Ball")
+        if(other.gameObject.tag == "Ball")
         {
             //unlockObj.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
