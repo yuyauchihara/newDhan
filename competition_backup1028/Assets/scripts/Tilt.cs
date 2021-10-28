@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Tilt : MonoBehaviour
 {
-    public float adRotate;
-    int Frame = 1;
+    public float adRotate = 100;
+    int Frame = 0;
     float zRotate = 0;
     float xRotate = 0;
     float x, z;
@@ -21,9 +21,19 @@ public class Tilt : MonoBehaviour
         //Debug.Log(adRotate);
         //Debug.Log(xRotate+","+zRotate);
         //Debug.Log(Frame);
-        Debug.Log(Frame);
         neutral();
         floorMove();
+
+        if (z == 1 && zRotate != -30)
+        {
+            Frame += 1;
+            Debug.Log(Frame);
+        }
+        else
+        {
+            Frame = 0;
+        }
+
     }
 
     void floorMove()
