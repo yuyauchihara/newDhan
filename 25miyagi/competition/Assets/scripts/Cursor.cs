@@ -9,7 +9,7 @@ public class Cursor : MonoBehaviour
     [SerializeField] private GameObject Cursor3;
     int startflg = 0;
     int Cursorcount = 1;
-
+    float x;
 
 
     void Start()
@@ -24,57 +24,50 @@ public class Cursor : MonoBehaviour
         ////////////////
         ///カーソルの位置を変えるコード
 
-        bool up = Input.GetKeyDown("X-Axis");
-        bool down = Input.GetKeyDown("Y-Axis");
+        x = Input.GetAxisRaw("Vertical");
 
 
-        //L Stick
-        //float lsh = Input.GetAxis("L_Stick_H");
-        //float lsv = Input.GetAxis("L_Stick_V");
-        //if ((lsh != 0) || (lsv != 0))
-        //{
+        
 
-        //}
-
-        if (Cursorcount == 1 && up == true)
+        if (Cursorcount == 1 && x == 1)
         {
             Cursorcount = 3;
-            Cursor1.SetActive(false);
-            Cursor2.SetActive(true);
-        }
-        else if (Cursorcount == 1 && down == true)
-        {
-            Cursorcount = 2;
             Cursor1.SetActive(false);
             Cursor3.SetActive(true);
         }
-
-        //カーソルが２にある時の操作
-        else if (Cursorcount == 2 && up == true)
+        else if (Cursorcount == 1 && x == -1)
         {
-            Cursorcount = 1;
+            Cursorcount = 2;
             Cursor1.SetActive(false);
             Cursor2.SetActive(true);
         }
-        else if (Cursorcount == 2 && down == true)
+
+        //カーソルが２にある時の操作
+        else if (Cursorcount == 2 && x == 1)
+        {
+            Cursorcount = 1;
+            Cursor2.SetActive(false);
+            Cursor1.SetActive(true);
+        }
+        else if (Cursorcount == 2 && x == -1)
         {
             Cursorcount = 3;
-            Cursor1.SetActive(false);
+            Cursor2.SetActive(false);
             Cursor3.SetActive(true);
         }
 
         //カーソルが３にある時の操作
-        else if (Cursorcount == 3 && up == true)
+        else if (Cursorcount == 3 && x == 1)
         {
             Cursorcount = 2;
-            Cursor1.SetActive(false);
+            Cursor3.SetActive(false);
             Cursor2.SetActive(true);
         }
-        else if (Cursorcount == 2 && down == true)
+        else if (Cursorcount == 3 && x == -1)
         {
             Cursorcount = 1;
-            Cursor1.SetActive(false);
-            Cursor3.SetActive(true);
+            Cursor3.SetActive(false);
+            Cursor1.SetActive(true);
         }
 
 
@@ -91,15 +84,13 @@ public class Cursor : MonoBehaviour
         bool kettei = Input.GetKeyDown("joystick button 0");
         if (kettei == true && Cursorcount == 1)
         {
+            
 
-
-        }
-        else if (kettei == true && Cursorcount == 2)
+        }else if (kettei == true && Cursorcount == 2)
         {
 
 
-        }
-        else if (kettei == true && Cursorcount == 3)
+        }else if (kettei == true && Cursorcount == 3)
         {
             Application.Quit();
 
