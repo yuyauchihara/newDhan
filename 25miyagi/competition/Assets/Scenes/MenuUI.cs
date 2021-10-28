@@ -16,7 +16,7 @@ public class MenuUI : MonoBehaviour
 
     void Update()
     {
-        bool start = Input.GetKeyDown("joystick button 9");
+        bool start = Input.GetKeyDown("joystick button 7");
 
         if (start == true && Pausecount == 0) 
         {
@@ -25,7 +25,7 @@ public class MenuUI : MonoBehaviour
             Pausecount = 1;
 
         }else if (start == true && Pausecount == 1){
-            Time.timeScale = 0;
+            Time.timeScale = 1;
             pausePanel.SetActive(false);
             Pausecount = 0;
 
