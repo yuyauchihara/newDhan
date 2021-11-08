@@ -38,6 +38,7 @@ public class Cursor : MonoBehaviour
             Cursorcount = 3;
             Cursor1.SetActive(false);
             Cursor3.SetActive(true);
+
         }
         else if (Cursorcount == 1 && x == -1)
         {
