@@ -32,6 +32,7 @@ public class Coin : MonoBehaviour
             //countText.text =  count.ToString() + "/12";
             Score();
         }
+
     }
     void Score()
     {
