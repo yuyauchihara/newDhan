@@ -1558,7 +1558,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6540284, y: 1}
+    m_SensorSize: {x: 3.006536, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2226,6 +2226,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 278787336780708338, guid: aba52ecb71e150843b3440e661e7e01f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74318f697ae76ad4c9a7ec5cfd08bfcb, type: 2}
     - target: {fileID: 278787336780708343, guid: aba52ecb71e150843b3440e661e7e01f,
         type: 3}
       propertyPath: m_Name
