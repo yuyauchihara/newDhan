@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Tilt : MonoBehaviour
 {
-    public float adRotate = 100;
+    float adRotate = 0.333333f;
     int Frame = 0;
     float zRotate = 0;
     float xRotate = 0;
     float x, z;
+    float acce = 12.6f;
+    float time = 0;
+    float MoveBackTime = 0;
+    float tltTime = 0;
+    int NTframe = 0;
 
     // Use this for initialization
     void Start()
     {
-
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -20,18 +25,36 @@ public class Tilt : MonoBehaviour
     {
         //Debug.Log(adRotate);
         //Debug.Log(xRotate+","+zRotate);
-        //Debug.Log(Frame);
+        Debug.Log(Frame);
+        //Debug.Log(NTframe);
+
         neutral();
         floorMove();
+        katamuke();
+
+        if (Input.GetKey(KeyCode.G))
+        {
+            Frame = 0;
+        }
 
         if (z == 1 && zRotate != -30)
         {
             Frame += 1;
-            Debug.Log(Frame);
         }
-        else
+
+        if (z == -1 && zRotate != 30)
         {
-            Frame = 0;
+            Frame += 1;
+        }
+
+        if (x == 1 && xRotate != 30)
+        {
+            Frame += 1;
+        }
+
+        if (x == -1 && xRotate != -30)
+        {
+            Frame += 1;
         }
 
     }
@@ -43,76 +66,101 @@ public class Tilt : MonoBehaviour
 
         if (x == 1)
         {
-            xRotate = Mathf.Clamp(xRotate + adRotate/* * Time.deltaTime*/, -30, 30);
+            time += Time.deltaTime;
+            xRotate = Mathf.Clamp(xRotate + acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
 
         if (x == -1)
         {
-            xRotate = Mathf.Clamp(xRotate - adRotate/* * Time.deltaTime*/, -30, 30);
+            time += Time.deltaTime;
+            xRotate = Mathf.Clamp(xRotate - acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
         if (z == 1)
         {
-            zRotate = Mathf.Clamp(zRotate - adRotate/* * Time.deltaTime*/, -30, 30);
+            time += Time.deltaTime;
+            zRotate = Mathf.Clamp(zRotate - acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
 
         if (z == -1)
         {
-            zRotate = Mathf.Clamp(zRotate + adRotate/* * Time.deltaTime*/, -30, 30);
-            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
-        }
-
-        if (x <= 1 && 0.5 <= x)
-        {
-            xRotate = Mathf.Clamp(xRotate + adRotate * Time.deltaTime, -30, 30);
-            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
-        }
-        if (x >= -1 && -0.5 >= x)
-        {
-            xRotate = Mathf.Clamp(xRotate - adRotate * Time.deltaTime, -30, 30);
-            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
-        }
-        if (z <= 1 && 0.5 <= z)
-        {
-            zRotate = Mathf.Clamp(zRotate - adRotate * Time.deltaTime, -30, 30);
-            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
-        }
-        if (z >= -1 && -0.5 >= z)
-        {
-            zRotate = Mathf.Clamp(zRotate + adRotate * Time.deltaTime, -30, 30);
+            time += Time.deltaTime;
+            zRotate = Mathf.Clamp(zRotate + acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
     }
 
     void neutral()
     {
+        if (x != 0 || z != 0)
+        {
+            MoveBackTime = 0;
+        }
+
         if (x == 0 && z == 0)
         {
+            time = 0;
+
+            NTframe = Mathf.Clamp(NTframe + 1, 0, 60);
+
             if (zRotate != 0 && zRotate > 0)
             {
-                zRotate -= Time.deltaTime * 100;
+                MoveBackTime += Time.deltaTime;
+                zRotate = Mathf.Clamp(zRotate - acce * Time.deltaTime * MoveBackTime, 0, 30);
                 transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
             }
 
             if (zRotate != 0 && zRotate < 0)
             {
-                zRotate += Time.deltaTime * 100;
+                MoveBackTime += Time.deltaTime;
+                zRotate = Mathf.Clamp(zRotate + acce * Time.deltaTime * MoveBackTime, -30, 0);
                 transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
             }
 
             if (xRotate != 0 && xRotate > 0)
             {
-                xRotate -= Time.deltaTime * 100;
+                MoveBackTime += Time.deltaTime;
+                xRotate = Mathf.Clamp(xRotate - acce * Time.deltaTime * MoveBackTime, 0, 30);
                 transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
             }
 
             if (xRotate != 0 && xRotate < 0)
             {
-                xRotate += Time.deltaTime * 100;
+                MoveBackTime += Time.deltaTime;
+                xRotate = Mathf.Clamp(xRotate + acce * Time.deltaTime * MoveBackTime, -30, 0);
                 transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
             }
+        }
+    }
+
+    void katamuke()
+    {
+
+        if (x <= 1 && 0.5 <= x) //+
+        {
+            tltTime += Time.deltaTime;
+            xRotate = Mathf.Clamp(xRotate + acce * Time.deltaTime * time, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+        }
+        if (x >= -1 && -0.5 >= x) //-
+        {
+            tltTime += Time.deltaTime;
+            xRotate = Mathf.Clamp(xRotate - acce * Time.deltaTime * time, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+        }
+        if (z <= 1 && 0.5 <= z) //-
+        {
+            tltTime += Time.deltaTime;
+            zRotate = Mathf.Clamp(zRotate - acce * Time.deltaTime * time, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
+        }
+        if (z >= -1 && -0.5 >= z) //+
+        {
+            tltTime += Time.deltaTime;
+            zRotate = Mathf.Clamp(zRotate + acce * Time.deltaTime * time, -30, 30);
+            transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
     }
 }
