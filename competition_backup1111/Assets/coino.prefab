@@ -108,6 +108,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &2145419453836631242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +237,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &7658833521069989225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +366,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &3466907965081293289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +495,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &8647210515768487884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +624,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &7018412122606001975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -718,6 +753,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &5846917676288415182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,6 +882,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &136086818853902079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8284448457543882382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013, y: 0.568, z: 0.41}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8284448457127446487}
@@ -1004,6 +1053,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &1146018633402869700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1126,6 +1182,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &3084105588282190953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,6 +1311,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &4819234623138711253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1370,6 +1440,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &7049221205042915963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,6 +1569,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 0}
+  particleObject: {fileID: 0}
+  ResultPanel: {fileID: 0}
+  RetryPanel: {fileID: 0}
+  RetryCursor1: {fileID: 0}
+  RetryCursor2: {fileID: 0}
+  RetryCursor3: {fileID: 0}
+  GameClear: {fileID: 0}
 --- !u!114 &2978112187648397549
 MonoBehaviour:
   m_ObjectHideFlags: 0

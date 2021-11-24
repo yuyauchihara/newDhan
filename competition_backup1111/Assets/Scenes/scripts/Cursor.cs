@@ -16,9 +16,15 @@ public class Cursor : MonoBehaviour
     float af = 0, df = 0;
     int Stet = 1;
 
+
     public AudioClip sound1;
+    public AudioClip sound2;
     AudioSource audioSource;
 
+    public bool DontDestroyEnabled = true;
+
+    //カウントアップ
+    private float countup = 0.0f;
 
     void Start()
     {
@@ -26,12 +32,18 @@ public class Cursor : MonoBehaviour
         Cursor2.SetActive(false);
         Cursor3.SetActive(false);
 
+
         audioSource = GetComponent<AudioSource>();
+
+        if (DontDestroyEnabled)
+        {
+            // Sceneを遷移してもオブジェクトが消えないようにする
+            DontDestroyOnLoad(this);
+        }
     }
 
     void Update()
     {
-
         ////////////////
         ///カーソルの位置を変えるコード
         ///
@@ -132,32 +144,41 @@ public class Cursor : MonoBehaviour
         ///カーソルの位置を変えるコード終わり
         ////////////////
 
-        
-
         ////////////////
         ///カーソルの指して項目を選択した時に実行するコード
 
-
+        
         bool kettei = Input.GetKeyDown("joystick button 0");
-       
+
+
         if (kettei == true && Cursorcount == 1)
         {
+            //音(sound2)を鳴らす
+            audioSource.PlayOneShot(sound2);
+
             Time.timeScale = 1;
             SceneManager.LoadScene("SampleScene");
 
+            Destroy(this);
         }
         if (kettei == true && Cursorcount == 2)
         {
+            //音(sound2)を鳴らす
+            audioSource.PlayOneShot(sound2);
+
             Time.timeScale = 1;
             SceneManager.LoadScene("Title");
+
+            Destroy(this);
         }
         if (kettei == true && Cursorcount == 3)
         {
+            //音(sound2)を鳴らす
+            audioSource.PlayOneShot(sound2);
+
             Application.Quit();
         }
         
-
-
 
         ///カーソルの指して項目を選択した時に実行するコード終わり
             ////////////////

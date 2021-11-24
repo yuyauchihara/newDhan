@@ -8,7 +8,7 @@ public class Tilt : MonoBehaviour
     float zRotate = 0;
     float xRotate = 0;
     float x, z;
-    float acce = 12.6f;
+    float acce = 28.5f;
     float time = 0;
     float MoveBackTime = 0;
     float tltTime = 0;
@@ -25,12 +25,12 @@ public class Tilt : MonoBehaviour
     {
         //Debug.Log(adRotate);
         //Debug.Log(xRotate+","+zRotate);
-        Debug.Log(Frame);
+        //Debug.Log(Frame);
         //Debug.Log(NTframe);
 
         neutral();
-        floorMove();
-        katamuke();
+        floorMove(); //これがないと床が動かん！！
+        katamuke(); //これがないとコントローラーで斜め入力が入らん！！
 
         if (Input.GetKey(KeyCode.G))
         {
@@ -64,29 +64,37 @@ public class Tilt : MonoBehaviour
         z = Input.GetAxisRaw("Horizontal");
         x = Input.GetAxisRaw("Vertical");
 
-        if (x == 1)
+        if (x > 0)
         {
-            time += Time.deltaTime;
+            tltTime = 0;
+            //time += Time.deltaTime;
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             xRotate = Mathf.Clamp(xRotate + acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
 
-        if (x == -1)
+        if (x < 0)
         {
-            time += Time.deltaTime;
+            tltTime = 0;
+            //time += Time.deltaTime;
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             xRotate = Mathf.Clamp(xRotate - acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
-        if (z == 1)
+        if (z > 0)
         {
-            time += Time.deltaTime;
+            tltTime = 0;
+            //time += Time.deltaTime;
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             zRotate = Mathf.Clamp(zRotate - acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
 
-        if (z == -1)
+        if (z < 0)
         {
-            time += Time.deltaTime;
+            tltTime = 0;
+            //time += Time.deltaTime;
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             zRotate = Mathf.Clamp(zRotate + acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
@@ -135,32 +143,38 @@ public class Tilt : MonoBehaviour
         }
     }
 
-    void katamuke()
+    void katamuke() //斜めです
     {
 
-        if (x <= 1 && 0.5 <= x) //+
+        if (x < 1 && 0.5 <= x) //+
         {
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             tltTime += Time.deltaTime;
             xRotate = Mathf.Clamp(xRotate + acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
-        if (x >= -1 && -0.5 >= x) //-
+        if (x > -1 && -0.5 >= x) //-
         {
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             tltTime += Time.deltaTime;
             xRotate = Mathf.Clamp(xRotate - acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
-        if (z <= 1 && 0.5 <= z) //-
+        if (z < 1 && 0.5 <= z) //-
         {
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             tltTime += Time.deltaTime;
             zRotate = Mathf.Clamp(zRotate - acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
-        if (z >= -1 && -0.5 >= z) //+
+        if (z > -1 && -0.5 >= z) //+
         {
+            time = Mathf.Clamp(time + Time.deltaTime, 0, 1);
             tltTime += Time.deltaTime;
             zRotate = Mathf.Clamp(zRotate + acce * Time.deltaTime * time, -30, 30);
             transform.eulerAngles = new Vector3(xRotate, 0, zRotate);
         }
     }
 }
+
+
