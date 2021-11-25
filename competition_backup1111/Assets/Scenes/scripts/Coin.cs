@@ -26,6 +26,10 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private GameObject GameClear;
 
+    public GameObject ball;
+    public GameObject flr;
+    Rigidbody Brb;
+
     int Clear = 0;
     int hyouji = 0;
     int Resultcount = 0;
@@ -50,6 +54,8 @@ public class Coin : MonoBehaviour
         RetryCursor3.SetActive(false);
         GameClear.SetActive(false);
         StartCoroutine("GameClearcount");
+
+        Brb = ball.GetComponent<Rigidbody>();
     }
 
     void Score()
@@ -77,7 +83,10 @@ public class Coin : MonoBehaviour
                 GameClear.SetActive(true);
                 stop = 1;
                 parclon = Instantiate(particleObject, this.transform.position, Quaternion.identity);
-               
+
+                Brb.isKinematic = true;
+                flr.GetComponent<Tilt>().enabled = false;
+
             }
 
         }
@@ -99,7 +108,7 @@ public class Coin : MonoBehaviour
                 seconds = 0;
                 GameClear.SetActive(false);
                 Clear = 1;
-                
+
             }
         }
         if (Clear == 1)

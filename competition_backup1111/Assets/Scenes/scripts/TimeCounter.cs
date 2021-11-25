@@ -34,7 +34,7 @@ public class TimeCounter : MonoBehaviour
             if (i == 0)
             {
                 countDownText.text = "スタート".ToString();
-                //音(sound1)を鳴らす
+                //音(sound2)を鳴らす
                 audioSource.PlayOneShot(sound2);
             }
         }
