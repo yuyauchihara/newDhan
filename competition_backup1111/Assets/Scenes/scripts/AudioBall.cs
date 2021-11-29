@@ -52,6 +52,14 @@ public class AudioBall : MonoBehaviour
             }
 
 
+            //if (x == 0 || z == 0)
+            //{
+            //    SEflag = 0;
+            //    if ()
+            //    {
+
+            //    }
+            //}
         }
 
     }
