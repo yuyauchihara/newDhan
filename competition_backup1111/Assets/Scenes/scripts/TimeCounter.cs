@@ -19,9 +19,7 @@ public class TimeCounter : MonoBehaviour
         StartCoroutine("CountDown");
 
         //Componentを取得
-        audioSource = GetComponent<AudioSource>();
-
-        //音(sound1)を鳴らす
+        audioSource = GetComponent<AudioSource>();//音(sound1)を鳴らす
         audioSource.PlayOneShot(sound1);
     }
 

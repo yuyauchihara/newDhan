@@ -17,9 +17,6 @@ public class AudioBall : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         Debug.Log("flagon");
 
-
-        
-
     }
     void Update()
     {
@@ -52,14 +49,15 @@ public class AudioBall : MonoBehaviour
             }
 
 
-            //if (x == 0 || z == 0)
-            //{
-            //    SEflag = 0;
-            //    if ()
-            //    {
-
-            //    }
-            //}
+            if (x == 0 || z == 0)
+            {
+                SEflag = 0;
+                SEflag++;
+                if (SEflag == 100)
+                {
+                    audioSource.Stop();
+                }
+            }
         }
 
     }

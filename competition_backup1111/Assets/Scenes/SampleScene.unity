@@ -3253,7 +3253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countDownText: {fileID: 1127279855}
   panel: {fileID: 1066994635}
-  sound1: {fileID: 8300000, guid: b640ef7fd00272445a118518de6256e6, type: 3}
+  sound1: {fileID: 8300000, guid: fd70755bd1dca6c498b54ea32a16ef5c, type: 3}
   sound2: {fileID: 8300000, guid: 69afcff32ddfba5408753a02a0f7fe73, type: 3}
 --- !u!82 &963194231
 AudioSource:
