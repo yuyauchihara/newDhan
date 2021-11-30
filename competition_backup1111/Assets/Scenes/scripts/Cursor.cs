@@ -21,7 +21,7 @@ public class Cursor : MonoBehaviour
     public AudioClip sound2;
     AudioSource audioSource;
 
-    public bool DontDestroyEnabled = true;
+    //public bool DontDestroyEnabled = true;
 
     //カウントアップ
     private float countup = 0.0f;
@@ -35,11 +35,11 @@ public class Cursor : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        if (DontDestroyEnabled)
-        {
-            // Sceneを遷移してもオブジェクトが消えないようにする
-            DontDestroyOnLoad(this);
-        }
+        //if (DontDestroyEnabled)
+        //{
+        //    // Sceneを遷移してもオブジェクトが消えないようにする
+        //    DontDestroyOnLoad(this);
+        //}
     }
 
     void Update()
@@ -156,10 +156,8 @@ public class Cursor : MonoBehaviour
             //音(sound2)を鳴らす
             audioSource.PlayOneShot(sound2);
 
-            Time.timeScale = 1;
-            SceneManager.LoadScene("SampleScene");
-
-            Destroy(this);
+            Time.timeScale = 1;            
+            StartCoroutine("GoToGameScene");
         }
         if (kettei == true && Cursorcount == 2)
         {
@@ -167,22 +165,39 @@ public class Cursor : MonoBehaviour
             audioSource.PlayOneShot(sound2);
 
             Time.timeScale = 1;
-            SceneManager.LoadScene("Title");
+            
+            StartCoroutine("GoToTitleScene");
 
-            Destroy(this);
         }
         if (kettei == true && Cursorcount == 3)
         {
-            //音(sound2)を鳴らす
-            audioSource.PlayOneShot(sound2);
-
-            Application.Quit();
+            StartCoroutine("GameExit");
         }
-        
 
+        
         ///カーソルの指して項目を選択した時に実行するコード終わり
             ////////////////
 
 
+    }
+    IEnumerator GoToGameScene()
+    {
+        yield return new WaitForSeconds(0.57f);
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    IEnumerator GoToTitleScene()
+    {
+        yield return new WaitForSeconds(0.57f);
+        SceneManager.LoadScene("Title");
+    }
+
+    IEnumerator GameExit()
+    {
+        //音(sound2)を鳴らす
+        audioSource.PlayOneShot(sound2);
+        yield return new WaitForSeconds(0.57f);
+        
+        Application.Quit();
     }
 }

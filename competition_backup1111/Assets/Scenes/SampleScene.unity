@@ -757,6 +757,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6278257025080962632, guid: 7d3993921301eb74e9a4e376b45fc69d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6278257025718845834, guid: 7d3993921301eb74e9a4e376b45fc69d,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -871,6 +876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278257025718845839, guid: 7d3993921301eb74e9a4e376b45fc69d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6684512513852788337, guid: 7d3993921301eb74e9a4e376b45fc69d,
         type: 3}
@@ -3199,7 +3209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.39016873, y: 0, z: 0, w: 0.9207434}
-  m_LocalPosition: {x: 0.0000009536743, y: 10.216591, z: -6.134051}
+  m_LocalPosition: {x: 0.0000009536743, y: 9.43659, z: -6.1340504}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3473,7 +3483,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989186626}
   m_LocalRotation: {x: 0.39016873, y: 0, z: 0, w: 0.9207434}
-  m_LocalPosition: {x: 0.0000009536743, y: 10.216591, z: -6.134051}
+  m_LocalPosition: {x: 0.0000009536743, y: 9.43659, z: -6.1340504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 256142627}
@@ -4490,7 +4500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458129045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.9499998, z: 0}
+  m_LocalPosition: {x: 0, y: 3.168, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 952222581}
@@ -5529,7 +5539,6 @@ MonoBehaviour:
   Cursor3: {fileID: 345950959}
   sound1: {fileID: 8300000, guid: b31abd2e672e3214c81746ae0b2221b1, type: 3}
   sound2: {fileID: 8300000, guid: ebb5178aa9cf84041b249e697970e958, type: 3}
-  DontDestroyEnabled: 1
 --- !u!4 &2025082890
 Transform:
   m_ObjectHideFlags: 0
@@ -5660,7 +5669,7 @@ PrefabInstance:
     - target: {fileID: 278787336780708337, guid: aba52ecb71e150843b3440e661e7e01f,
         type: 3}
       propertyPath: m_Radius
-      value: 0.66
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 278787336780708337, guid: aba52ecb71e150843b3440e661e7e01f,
         type: 3}
@@ -5680,7 +5689,7 @@ PrefabInstance:
     - target: {fileID: 278787336780708348, guid: aba52ecb71e150843b3440e661e7e01f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 278787336780708348, guid: aba52ecb71e150843b3440e661e7e01f,
         type: 3}
