@@ -11,22 +11,14 @@ public class AudioBall : MonoBehaviour
     float SEsec;
     float x, z;
 
-    GameObject Coin;
-    Coin script;
-
     void Start()
     {
         //Componentを取得
         audioSource = GetComponent<AudioSource>();
-        Debug.Log("flagon");
-
-        Coin = GameObject.Find("Coin");
-        script = Coin.GetComponent<Coin>();
-
+        //Debug.Log("flagon");
     }
     void Update()
     {
-
         SEsec++;
 
         z = Input.GetAxisRaw("Horizontal");
@@ -37,8 +29,6 @@ public class AudioBall : MonoBehaviour
             audioSource.Stop();
         }
 
-
- 
     }
 
     private void OnCollisionEnter(Collision collision)

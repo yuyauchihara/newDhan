@@ -172,6 +172,7 @@ public class Cursor : MonoBehaviour
         if (kettei == true && Cursorcount == 3)
         {
             StartCoroutine("GameExit");
+            Time.timeScale = 1;
         }
 
         

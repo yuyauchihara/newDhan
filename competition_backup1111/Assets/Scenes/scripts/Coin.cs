@@ -80,22 +80,20 @@ public class Coin : MonoBehaviour
 
             if (count == 12)
             {
+                
                 GameClear.SetActive(true);
                 stop = 1;
                 parclon = Instantiate(particleObject, this.transform.position, Quaternion.identity);
 
-                Brb.isKinematic = true;
-                flr.GetComponent<Tilt>().enabled = false;
+                //ball.SetActive(false);
+                //Brb.isKinematic = true;
+                //flr.GetComponent<Tilt>().enabled = false;
 
             }
 
         }
 
     }
-
-
-
-
 
 
     void Update()
@@ -198,7 +196,6 @@ public class Coin : MonoBehaviour
             else if (Retrykettei == true && Retrycount == 3)
             {
                 Application.Quit();
-
             }
 
 
