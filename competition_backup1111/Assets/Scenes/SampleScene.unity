@@ -2455,12 +2455,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &761904782 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7965268239685926279, guid: 3729979473716f24b86070d678be0135,
-    type: 3}
-  m_PrefabInstance: {fileID: 1699881604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &841339134
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,7 +4840,7 @@ MonoBehaviour:
   particleObject: {fileID: 8690437262078653362, guid: 24cf8fff5ea8c58439fb35b437e72c92,
     type: 3}
   ResultPanel: {fileID: 130617744}
-  RetryPanel: {fileID: 761904782}
+  RetryPanel: {fileID: 1165550693}
   RetryCursor1: {fileID: 93391720}
   RetryCursor2: {fileID: 1424075961}
   RetryCursor3: {fileID: 132126356}

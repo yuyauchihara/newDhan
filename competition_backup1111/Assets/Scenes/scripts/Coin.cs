@@ -38,9 +38,11 @@ public class Coin : MonoBehaviour
     float x;
     float seconds;
 
+    int kaisucount;
 
     void Start()
     {
+        kaisucount = 0; 
 
         count = 0;
         //countText.text = "0/12" + count.ToString();
@@ -111,15 +113,17 @@ public class Coin : MonoBehaviour
         }
         if (Clear == 1)
         {
-            Time.timeScale = 0;
-            Resultcount = 1;
-            ResultPanel.SetActive(true);
+            if (kaisucount ==0) {
+                kaisucount = 1;
+                Time.timeScale = 0;
+                Resultcount = 1;
+                ResultPanel.SetActive(true);
+            }
 
 
             bool Resultkettei = Input.GetKeyDown("joystick button 1");
             if (Resultkettei == true & Resultcount == 1)
             {
-                Resultcount = 0;
                 Retrycount = 1;
                 ResultPanel.SetActive(false);
                 RetryPanel.SetActive(true);
