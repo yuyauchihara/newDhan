@@ -138,88 +138,91 @@ public class Coin : MonoBehaviour
             }
             x = Input.GetAxisRaw("Vertical");
 
-            //カーソルの位置の処理、連続入力の防止ここから
-
-            //スティックが上
-            if (x > 0)
+            if (RetryPanel.activeSelf == true)
             {
-                af++;//上入力の間加算し続ける
+                //カーソルの位置の処理、連続入力の防止ここから
 
-                if (af == 1)//afが加算され続けている時、その値が1の瞬間のみ以下の処理を行う。故に連続入力の対策となる
+                //スティックが上
+                if (x > 0)
                 {
-                    Retrycount--;
+                    af++;//上入力の間加算し続ける
 
-                    //音(sound1)を鳴らす
-                    audioSource.PlayOneShot(sound1);
+                    if (af == 1)//afが加算され続けている時、その値が1の瞬間のみ以下の処理を行う。故に連続入力の対策となる
+                    {
+                        Retrycount--;
+
+                        //音(sound1)を鳴らす
+                        audioSource.PlayOneShot(sound1);
+                    }
                 }
-            }
-            else
-            {
-                af = 0;//スティックが離されるか別入力になったら0にする
-            }
-            //カーソルが１の時に更に上に上げられたらカーソルの位置を３に移動させる
-            if (Retrycount <= 0)
-            {
-                Retrycount = 3;
-            }
-
-            //スティックが下
-            if (x < 0)
-            {
-                df++;//下入力の間加算を続ける
-
-                if (df == 1)
+                else
                 {
-                    Retrycount++;
-
-                    //音(sound1)を鳴らす
-                    audioSource.PlayOneShot(sound1);
+                    af = 0;//スティックが離されるか別入力になったら0にする
                 }
-            }
-            else
-            {
-                df = 0;
-            }
-            if (Retrycount >= 4)
-            {
-                Retrycount = 1;
-            }
-            //カーソルの位置の処理、連続入力の防止ここまで
+                //カーソルが１の時に更に上に上げられたらカーソルの位置を３に移動させる
+                if (Retrycount <= 0)
+                {
+                    Retrycount = 3;
+                }
+
+                //スティックが下
+                if (x < 0)
+                {
+                    df++;//下入力の間加算を続ける
+
+                    if (df == 1)
+                    {
+                        Retrycount++;
+
+                        //音(sound1)を鳴らす
+                        audioSource.PlayOneShot(sound1);
+                    }
+                }
+                else
+                {
+                    df = 0;
+                }
+                if (Retrycount >= 4)
+                {
+                    Retrycount = 1;
+                }
+                //カーソルの位置の処理、連続入力の防止ここまで
 
 
-            //カーソルが1
-            if (Retrycount == 1)
-            {
-                RetryCursor1.SetActive(true);
-                RetryCursor2.SetActive(false);
-                RetryCursor3.SetActive(false);
-
-            }
-
-            //カーソルが２にある時の操作
-            else if (Retrycount == 2)
-            {
-                RetryCursor1.SetActive(false);
-                RetryCursor2.SetActive(true);
-                RetryCursor3.SetActive(false);
-
+                //カーソルが1
                 if (Retrycount == 1)
                 {
+                    RetryCursor1.SetActive(true);
+                    RetryCursor2.SetActive(false);
+                    RetryCursor3.SetActive(false);
 
                 }
 
-            }
-
-            //カーソルが３にある時の操作
-            else if (Retrycount == 3)
-            {
-                RetryCursor1.SetActive(false);
-                RetryCursor2.SetActive(false);
-                RetryCursor3.SetActive(true);
-
-                if (Retrycount == 2)
+                //カーソルが２にある時の操作
+                else if (Retrycount == 2)
                 {
+                    RetryCursor1.SetActive(false);
+                    RetryCursor2.SetActive(true);
+                    RetryCursor3.SetActive(false);
 
+                    if (Retrycount == 1)
+                    {
+
+                    }
+
+                }
+
+                //カーソルが３にある時の操作
+                else if (Retrycount == 3)
+                {
+                    RetryCursor1.SetActive(false);
+                    RetryCursor2.SetActive(false);
+                    RetryCursor3.SetActive(true);
+
+                    if (Retrycount == 2)
+                    {
+
+                    }
                 }
             }
 

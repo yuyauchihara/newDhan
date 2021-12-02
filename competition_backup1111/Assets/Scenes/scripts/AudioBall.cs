@@ -41,7 +41,7 @@ public class AudioBall : MonoBehaviour
                 //音(sound1)を鳴らす
                 audioSource.PlayOneShot(sound1);
 
-                SEflag += 480;
+                SEflag += 11680;
             }
 
 
