@@ -131,6 +131,7 @@ public class Coin : MonoBehaviour
             bool Resultkettei = Input.GetKeyDown("joystick button 1");
             if (Resultkettei == true & Resultcount == 1)
             {
+                Resultcount = 0;
                 Retrycount = 1;
                 ResultPanel.SetActive(false);
                 RetryPanel.SetActive(true);
