@@ -16,3 +16,5 @@ public class AudioBall : MonoBehaviour
         //Componentを取得
         audioSource = GetComponent<AudioSource>();
         Debug.Log("flagon");
+    }
+}
