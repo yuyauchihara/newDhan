@@ -37,8 +37,13 @@ public class Coin : MonoBehaviour
     int stop = 0;
     float x;
     float seconds;
+    float af = 0, df = 0;
 
     int kaisucount;
+
+    public AudioClip sound1;
+    public AudioClip sound2;
+    AudioSource audioSource;
 
     void Start()
     {
@@ -58,6 +63,8 @@ public class Coin : MonoBehaviour
         StartCoroutine("GameClearcount");
 
         Brb = ball.GetComponent<Rigidbody>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Score()
@@ -131,54 +138,89 @@ public class Coin : MonoBehaviour
             }
             x = Input.GetAxisRaw("Vertical");
 
+            //カーソルの位置の処理、連続入力の防止ここから
 
-            if (Retrycount == 1 && x == 1)
+            //スティックが上
+            if (x > 0)
+            {
+                af++;//上入力の間加算し続ける
+
+                if (af == 1)//afが加算され続けている時、その値が1の瞬間のみ以下の処理を行う。故に連続入力の対策となる
+                {
+                    Retrycount--;
+
+                    //音(sound1)を鳴らす
+                    audioSource.PlayOneShot(sound1);
+                }
+            }
+            else
+            {
+                af = 0;//スティックが離されるか別入力になったら0にする
+            }
+            //カーソルが１の時に更に上に上げられたらカーソルの位置を３に移動させる
+            if (Retrycount <= 0)
             {
                 Retrycount = 3;
-                RetryCursor1.SetActive(false);
-                RetryCursor3.SetActive(true);
-
             }
-            else if (Retrycount == 1 && x == -1)
+
+            //スティックが下
+            if (x < 0)
             {
-                Retrycount = 2;
-                RetryCursor1.SetActive(false);
-                RetryCursor2.SetActive(true);
+                df++;//下入力の間加算を続ける
+
+                if (df == 1)
+                {
+                    Retrycount++;
+
+                    //音(sound1)を鳴らす
+                    audioSource.PlayOneShot(sound1);
+                }
+            }
+            else
+            {
+                df = 0;
+            }
+            if (Retrycount >= 4)
+            {
+                Retrycount = 1;
+            }
+            //カーソルの位置の処理、連続入力の防止ここまで
+
+
+            //カーソルが1
+            if (Retrycount == 1)
+            {
+                RetryCursor1.SetActive(true);
+                RetryCursor2.SetActive(false);
+                RetryCursor3.SetActive(false);
+
             }
 
             //カーソルが２にある時の操作
-            else if (Retrycount == 2 && x == 1)
+            else if (Retrycount == 2)
             {
-                Retrycount = 1;
-                RetryCursor2.SetActive(false);
-                RetryCursor1.SetActive(true);
+                RetryCursor1.SetActive(false);
+                RetryCursor2.SetActive(true);
+                RetryCursor3.SetActive(false);
 
+                if (Retrycount == 1)
+                {
 
-            }
-            else if (Retrycount == 2 && x == -1)
-            {
-                Retrycount = 3;
-                RetryCursor2.SetActive(false);
-                RetryCursor3.SetActive(true);
+                }
 
             }
 
             //カーソルが３にある時の操作
-            else if (Retrycount == 3 && x == 1)
+            else if (Retrycount == 3)
             {
-                Retrycount = 2;
-                RetryCursor3.SetActive(false);
-                RetryCursor2.SetActive(true);
+                RetryCursor1.SetActive(false);
+                RetryCursor2.SetActive(false);
+                RetryCursor3.SetActive(true);
 
-            }
-            else if (Retrycount == 3 && x == -1)
-            {
-                Retrycount = 1;
-                RetryCursor3.SetActive(false);
-                RetryCursor1.SetActive(true);
+                if (Retrycount == 2)
+                {
 
-
-
+                }
             }
 
             ////////////////
@@ -189,17 +231,25 @@ public class Coin : MonoBehaviour
             if (Retrykettei == true && Retrycount == 1)
             {
 
+                //音(sound2)を鳴らす
+                audioSource.PlayOneShot(sound2);
+
                 Time.timeScale = 1;
-                SceneManager.LoadScene("SampleScene");
+                StartCoroutine("GoToGameScene");
             }
             else if (Retrykettei == true && Retrycount == 2)
             {
+                //音(sound2)を鳴らす
+                audioSource.PlayOneShot(sound2);
+
                 Time.timeScale = 1;
-                SceneManager.LoadScene("TitleScene");
+
+                StartCoroutine("GoToTitleScene");
             }
             else if (Retrykettei == true && Retrycount == 3)
             {
-                Application.Quit();
+                StartCoroutine("GameExit");
+                Time.timeScale = 1;
             }
 
 
@@ -207,8 +257,26 @@ public class Coin : MonoBehaviour
             ////////////////
         }
 
+    }
+    IEnumerator GoToGameScene()
+    {
+        yield return new WaitForSeconds(0.57f);
+        SceneManager.LoadScene("SampleScene");
+    }
 
+    IEnumerator GoToTitleScene()
+    {
+        yield return new WaitForSeconds(0.57f);
+        SceneManager.LoadScene("Title");
+    }
 
+    IEnumerator GameExit()
+    {
+        //音(sound2)を鳴らす
+        audioSource.PlayOneShot(sound2);
+        yield return new WaitForSeconds(0.57f);
+
+        Application.Quit();
     }
 
 

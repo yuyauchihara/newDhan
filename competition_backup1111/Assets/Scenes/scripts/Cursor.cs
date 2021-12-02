@@ -21,6 +21,8 @@ public class Cursor : MonoBehaviour
     public AudioClip sound2;
     AudioSource audioSource;
 
+
+
     //public bool DontDestroyEnabled = true;
 
     //カウントアップ

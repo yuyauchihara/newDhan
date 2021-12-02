@@ -4714,12 +4714,14 @@ MonoBehaviour:
     type: 3}
   ResultPanel: {fileID: 130617744}
   RetryPanel: {fileID: 1165550693}
-  RetryCursor1: {fileID: 0}
-  RetryCursor2: {fileID: 0}
-  RetryCursor3: {fileID: 0}
+  RetryCursor1: {fileID: 93391720}
+  RetryCursor2: {fileID: 1424075961}
+  RetryCursor3: {fileID: 132126356}
   GameClear: {fileID: 707815688}
   ball: {fileID: 1501931587}
   flr: {fileID: 952222577}
+  sound1: {fileID: 8300000, guid: b31abd2e672e3214c81746ae0b2221b1, type: 3}
+  sound2: {fileID: 8300000, guid: ebb5178aa9cf84041b249e697970e958, type: 3}
 --- !u!114 &1501931597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4847,6 +4849,8 @@ MonoBehaviour:
   GameClear: {fileID: 707815688}
   ball: {fileID: 1501931587}
   flr: {fileID: 952222577}
+  sound1: {fileID: 8300000, guid: b31abd2e672e3214c81746ae0b2221b1, type: 3}
+  sound2: {fileID: 8300000, guid: ebb5178aa9cf84041b249e697970e958, type: 3}
 --- !u!114 &1525541762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5511,6 +5515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7965268240866135488, guid: 3729979473716f24b86070d678be0135,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3729979473716f24b86070d678be0135, type: 3}
