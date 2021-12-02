@@ -60,7 +60,7 @@ public class Coin : MonoBehaviour
         RetryCursor2.SetActive(false);
         RetryCursor3.SetActive(false);
         GameClear.SetActive(false);
-        StartCoroutine("GameClearcount");
+        //StartCoroutine("GameClearcount");
 
         Brb = ball.GetComponent<Rigidbody>();
 
