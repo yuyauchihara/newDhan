@@ -2921,8 +2921,8 @@ MonoBehaviour:
   RetryCursor2: {fileID: 2030245731}
   RetryCursor3: {fileID: 2030245730}
   GameClear: {fileID: 0}
-  ball: {fileID: 0}
-  flr: {fileID: 0}
+  ball: {fileID: 1501931587}
+  flr: {fileID: 952222577}
 --- !u!1 &1525541759 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8284448457543882382, guid: ceab78e769de1254db1561289c08da77,
